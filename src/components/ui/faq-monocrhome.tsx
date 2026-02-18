@@ -261,7 +261,7 @@ function FAQ1() {
       /* ignore */
     }
   };
-  const toggleQuestion = (index) => setActiveIndex((prev) => (prev === index ? -1 : index));
+  const toggleQuestion = (index: number) => setActiveIndex((prev) => (prev === index ? -1 : index));
 
   useEffect(() => {
     if (typeof window === "undefined") {
@@ -286,14 +286,14 @@ function FAQ1() {
     };
   }, []);
 
-  const setCardGlow = (event) => {
+  const setCardGlow = (event: React.MouseEvent<HTMLDivElement>) => {
     const target = event.currentTarget;
     const rect = target.getBoundingClientRect();
     target.style.setProperty("--faq-x", `${event.clientX - rect.left}px`);
     target.style.setProperty("--faq-y", `${event.clientY - rect.top}px`);
   };
 
-  const clearCardGlow = (event) => {
+  const clearCardGlow = (event: React.MouseEvent<HTMLDivElement>) => {
     const target = event.currentTarget;
     target.style.removeProperty("--faq-x");
     target.style.removeProperty("--faq-y");
