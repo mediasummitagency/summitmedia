@@ -47,6 +47,7 @@ export function BeamsBackground({
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const beamsRef = useRef<Beam[]>([]);
     const animationFrameRef = useRef<number>(0);
+    const cssSizeRef = useRef({ width: 0, height: 0 });
     const MINIMUM_BEAMS = 20;
 
     const opacityMap = {
@@ -64,15 +65,19 @@ export function BeamsBackground({
 
         const updateCanvasSize = () => {
             const dpr = window.devicePixelRatio || 1;
-            canvas.width = window.innerWidth * dpr;
-            canvas.height = window.innerHeight * dpr;
-            canvas.style.width = `${window.innerWidth}px`;
-            canvas.style.height = `${window.innerHeight}px`;
+            const cssWidth = window.innerWidth;
+            const cssHeight = window.innerHeight;
+            cssSizeRef.current = { width: cssWidth, height: cssHeight };
+
+            canvas.width = cssWidth * dpr;
+            canvas.height = cssHeight * dpr;
+            canvas.style.width = `${cssWidth}px`;
+            canvas.style.height = `${cssHeight}px`;
             ctx.scale(dpr, dpr);
 
             const totalBeams = MINIMUM_BEAMS * 1.5;
             beamsRef.current = Array.from({ length: totalBeams }, () =>
-                createBeam(canvas.width, canvas.height)
+                createBeam(cssWidth, cssHeight)
             );
         };
 
@@ -83,9 +88,9 @@ export function BeamsBackground({
             if (!canvas) return beam;
 
             const column = index % 3;
-            const spacing = canvas.width / 3;
+            const spacing = cssSizeRef.current.width / 3;
 
-            beam.y = canvas.height + 100;
+            beam.y = cssSizeRef.current.height + 100;
             beam.x =
                 column * spacing +
                 spacing / 2 +

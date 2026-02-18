@@ -12,6 +12,9 @@
 import { Hero } from "@/components/sections/Hero";
 import { ProblemCards } from "@/components/sections/ProblemCards";
 import { HowItWorks } from "@/components/sections/HowItWorks";
+import { Differentiator } from "@/components/sections/Differentiator";
+import { WhatYouGet } from "@/components/sections/WhatYouGet";
+import { MidCTA } from "@/components/sections/MidCTA";
 
 export default function Home() {
   return (
@@ -19,6 +22,9 @@ export default function Home() {
       <Hero />
       <ProblemCards />
       <HowItWorks />
+      <Differentiator />
+      <WhatYouGet />
+      <MidCTA />
     </main>
   );
 }

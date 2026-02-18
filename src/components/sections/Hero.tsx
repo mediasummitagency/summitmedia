@@ -2,8 +2,7 @@
 
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
-import { BeamsBackground } from "@/components/ui/beams-background";
-import { Spotlight } from "@/components/blocks/spotlight-new";
+import { AuroraBackground } from "@/components/ui/aurora-background";
 
 interface HeroProps {
   headline?: string;
@@ -24,44 +23,31 @@ export function Hero({
   };
 
   return (
-    <BeamsBackground className="md:min-h-screen" intensity="subtle">
-      <Spotlight />
-      <div className="flex w-full md:min-h-screen items-center justify-center py-20 md:py-0 px-6 relative z-10">
-        <div className="flex flex-col items-center text-center">
-          <motion.h1
-            className="text-3xl md:text-5xl font-bold text-white max-w-3xl leading-tight"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
-            {headline}
-          </motion.h1>
+    <AuroraBackground className="md:min-h-screen bg-white">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3, duration: 0.8, ease: "easeInOut" }}
+        className="relative flex flex-col items-center justify-center text-center px-6"
+      >
+        <h1 className="text-3xl md:text-5xl font-bold text-[#1A1F36] max-w-3xl leading-tight">
+          {headline}
+        </h1>
 
-          <motion.p
-            className="text-lg md:text-xl text-[#CCCCCC] max-w-2xl mt-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-          >
-            {subhead}
-          </motion.p>
+        <p className="text-lg md:text-xl text-[#6B7280] max-w-2xl mt-6">
+          {subhead}
+        </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
-            className="mt-10"
+        <div className="mt-10">
+          <Button
+            size="lg"
+            className="bg-[#D4A843] text-white hover:bg-[#C4952E] rounded-lg text-base px-8 py-3 h-auto cursor-pointer"
+            onClick={handleClick}
           >
-            <Button
-              size="lg"
-              className="bg-[#D4A843] text-white hover:bg-[#C4952E] rounded-lg text-base px-8 py-3 h-auto cursor-pointer"
-              onClick={handleClick}
-            >
-              {ctaText}
-            </Button>
-          </motion.div>
+            {ctaText}
+          </Button>
         </div>
-      </div>
-    </BeamsBackground>
+      </motion.div>
+    </AuroraBackground>
   );
 }

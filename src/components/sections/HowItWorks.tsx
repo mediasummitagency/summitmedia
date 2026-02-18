@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Target, Route, PhoneCall, MailCheck, BarChart3 } from "lucide-react";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
-import { BeamsBackground } from "@/components/ui/beams-background";
+import { AuroraBackground } from "@/components/ui/aurora-background";
 
 const timelineData = [
   {
@@ -97,41 +97,43 @@ export function HowItWorks({
   }, []);
 
   return (
-    <BeamsBackground className="py-20" intensity="subtle">
-      <section ref={sectionRef} className="relative z-10">
-        <div className="max-w-5xl mx-auto px-6">
-          <h2
-            className="text-center text-2xl md:text-4xl font-bold text-white mb-4 transition-all duration-700 ease-out"
-            style={{
-              opacity: isVisible ? 1 : 0,
-              transform: isVisible ? "translateY(0)" : "translateY(24px)",
-            }}
-          >
-            {sectionTitle}
-          </h2>
-          <p
-            className="text-center text-sm text-white/60 mb-8 transition-all duration-700 ease-out"
-            style={{
-              opacity: isVisible ? 1 : 0,
-              transform: isVisible ? "translateY(0)" : "translateY(24px)",
-              transitionDelay: "100ms",
-            }}
-          >
-            Click any step to explore
-          </p>
-        </div>
+    <div className="dark">
+      <AuroraBackground className="h-auto py-20 !bg-black" showRadialGradient={true}>
+        <section ref={sectionRef} className="relative z-10">
+          <div className="max-w-5xl mx-auto px-6">
+            <h2
+              className="text-center text-2xl md:text-4xl font-bold text-white mb-4 transition-all duration-700 ease-out"
+              style={{
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? "translateY(0)" : "translateY(24px)",
+              }}
+            >
+              {sectionTitle}
+            </h2>
+            <p
+              className="text-center text-sm text-white/60 mb-8 transition-all duration-700 ease-out"
+              style={{
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? "translateY(0)" : "translateY(24px)",
+                transitionDelay: "100ms",
+              }}
+            >
+              Click any step to explore
+            </p>
+          </div>
 
-        <div
-          className="transition-all duration-700 ease-out"
-          style={{
-            opacity: isVisible ? 1 : 0,
-            transform: isVisible ? "translateY(0)" : "translateY(24px)",
-            transitionDelay: "200ms",
-          }}
-        >
-          <RadialOrbitalTimeline timelineData={timelineData} isInView={isVisible} />
-        </div>
-      </section>
-    </BeamsBackground>
+          <div
+            className="transition-all duration-700 ease-out"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? "translateY(0)" : "translateY(24px)",
+              transitionDelay: "200ms",
+            }}
+          >
+            <RadialOrbitalTimeline timelineData={timelineData} isInView={isVisible} />
+          </div>
+        </section>
+      </AuroraBackground>
+    </div>
   );
 }
