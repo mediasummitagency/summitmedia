@@ -15,6 +15,9 @@ import { HowItWorks } from "@/components/sections/HowItWorks";
 import { Differentiator } from "@/components/sections/Differentiator";
 import { WhatYouGet } from "@/components/sections/WhatYouGet";
 import { MidCTA } from "@/components/sections/MidCTA";
+import { FAQ } from "@/components/sections/FAQ";
+import { FinalCTA } from "@/components/sections/FinalCTA";
+import { Footer } from "@/components/sections/Footer";
 
 export default function Home() {
   return (
@@ -25,6 +28,9 @@ export default function Home() {
       <Differentiator />
       <WhatYouGet />
       <MidCTA />
+      <FAQ />
+      <FinalCTA />
+      <Footer />
     </main>
   );
 }

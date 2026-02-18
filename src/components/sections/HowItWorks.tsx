@@ -2,69 +2,42 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Target, Route, PhoneCall, MailCheck, BarChart3 } from "lucide-react";
-import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
+import {
+  FeaturesSectionWithHoverEffects,
+  type FeatureItem,
+} from "@/components/blocks/feature-section-with-hover-effects";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 
-const timelineData = [
+const steps: FeatureItem[] = [
   {
-    id: 1,
     title: "Capture Demand",
-    date: "Step 1",
-    content:
+    description:
       "We put your business in front of homeowners in your area who are actively looking for your service right now. Not shared leads. Not a bidding war. These people are only coming to you.",
-    category: "Acquisition",
-    icon: Target,
-    relatedIds: [2],
-    status: "completed" as const,
-    energy: 100,
+    icon: <Target />,
   },
   {
-    id: 2,
     title: "Route & Track",
-    date: "Step 2",
-    content:
+    description:
       "Every lead is tagged, tracked, and routed to you instantly. You know exactly where they came from and what they need.",
-    category: "Operations",
-    icon: Route,
-    relatedIds: [1, 3],
-    status: "completed" as const,
-    energy: 90,
+    icon: <Route />,
   },
   {
-    id: 3,
     title: "Answer & Qualify",
-    date: "Step 3",
-    content:
+    description:
       "Speed wins. Our system makes sure leads get a response fast — before they move on to someone else.",
-    category: "Response",
-    icon: PhoneCall,
-    relatedIds: [2, 4],
-    status: "completed" as const,
-    energy: 80,
+    icon: <PhoneCall />,
   },
   {
-    id: 4,
     title: "Follow Up",
-    date: "Step 4",
-    content:
+    description:
       "Most contractors lose jobs because they never follow up. We build automated sequences that keep you top of mind.",
-    category: "Nurture",
-    icon: MailCheck,
-    relatedIds: [3, 5],
-    status: "completed" as const,
-    energy: 85,
+    icon: <MailCheck />,
   },
   {
-    id: 5,
     title: "Report Outcomes",
-    date: "Step 5",
-    content:
+    description:
       "Every week you get a scorecard: how many leads came in, how many picked up, how many estimates you booked, how many closed, and what each booked job cost you. No fluff metrics. Just the numbers that hit your bank account.",
-    category: "Analytics",
-    icon: BarChart3,
-    relatedIds: [4],
-    status: "completed" as const,
-    energy: 95,
+    icon: <BarChart3 />,
   },
 ];
 
@@ -111,14 +84,14 @@ export function HowItWorks({
               {sectionTitle}
             </h2>
             <p
-              className="text-center text-sm text-white/60 mb-8 transition-all duration-700 ease-out"
+              className="text-center text-sm text-white/60 mb-2 transition-all duration-700 ease-out"
               style={{
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible ? "translateY(0)" : "translateY(24px)",
                 transitionDelay: "100ms",
               }}
             >
-              Click any step to explore
+              Five steps from stranger to booked job
             </p>
           </div>
 
@@ -130,7 +103,7 @@ export function HowItWorks({
               transitionDelay: "200ms",
             }}
           >
-            <RadialOrbitalTimeline timelineData={timelineData} isInView={isVisible} />
+            <FeaturesSectionWithHoverEffects features={steps} />
           </div>
         </section>
       </AuroraBackground>
