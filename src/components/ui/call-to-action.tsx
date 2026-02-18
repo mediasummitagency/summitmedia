@@ -1,6 +1,6 @@
 import { MoveRight, PhoneCall } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 
 function CTA() {
   return (
@@ -21,12 +21,20 @@ function CTA() {
             </p>
           </div>
           <div className="flex flex-row gap-4">
-            <Button className="gap-4" variant="outline">
+            <HoverBorderGradient
+              containerClassName="rounded-full"
+              as="button"
+              className="dark:bg-black bg-white text-black dark:text-white flex items-center gap-4"
+            >
               Jump on a call <PhoneCall className="w-4 h-4" />
-            </Button>
-            <Button className="gap-4">
+            </HoverBorderGradient>
+            <HoverBorderGradient
+              containerClassName="rounded-full"
+              as="button"
+              className="dark:bg-black bg-white text-black dark:text-white flex items-center gap-4"
+            >
               Sign up here <MoveRight className="w-4 h-4" />
-            </Button>
+            </HoverBorderGradient>
           </div>
         </div>
       </div>

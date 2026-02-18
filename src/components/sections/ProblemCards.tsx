@@ -87,7 +87,7 @@ function CardFront({ icon, title }: { icon: string; title: string }) {
 
   return (
     <div className="flex flex-col items-center justify-center h-full w-full p-8 text-center">
-      {Icon && <Icon size={40} className="text-[#D4A843] mb-4" strokeWidth={1.5} />}
+      {Icon && <Icon size={40} className="text-[#ffb900] mb-4" strokeWidth={1.5} />}
       <h3 className="text-xl font-semibold text-[#1A1F36]">{title}</h3>
     </div>
   );

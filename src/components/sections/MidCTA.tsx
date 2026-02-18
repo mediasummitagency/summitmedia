@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Button } from "@/components/ui/button";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 
 interface MidCTAProps {
   headline?: string;
@@ -51,13 +51,14 @@ export function MidCTA({
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
           className="mt-8"
         >
-          <Button
-            size="lg"
-            className="bg-[#D4A843] text-white hover:bg-[#C4952E] rounded-lg text-base px-8 py-3 h-auto cursor-pointer"
+          <HoverBorderGradient
+            containerClassName="rounded-full"
+            as="button"
+            className="bg-[#ffb900] text-white flex items-center px-8 py-3 cursor-pointer"
             onClick={handleClick}
           >
             {ctaText}
-          </Button>
+          </HoverBorderGradient>
         </motion.div>
       </div>
     </section>

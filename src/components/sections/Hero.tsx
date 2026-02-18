@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Button } from "@/components/ui/button";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 
 interface HeroProps {
@@ -39,13 +39,14 @@ export function Hero({
         </p>
 
         <div className="mt-10">
-          <Button
-            size="lg"
-            className="bg-[#D4A843] text-white hover:bg-[#C4952E] rounded-lg text-base px-8 py-3 h-auto cursor-pointer"
+          <HoverBorderGradient
+            containerClassName="rounded-full"
+            as="button"
+            className="bg-[#ffb900] text-white flex items-center px-8 py-3 cursor-pointer"
             onClick={handleClick}
           >
             {ctaText}
-          </Button>
+          </HoverBorderGradient>
         </div>
       </motion.div>
     </AuroraBackground>

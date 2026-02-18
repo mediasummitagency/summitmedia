@@ -12,7 +12,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Button } from "@/components/ui/button";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 
 interface FinalCTAProps {
   headline?: string;
@@ -130,13 +130,13 @@ export function FinalCTA({
                   </SelectContent>
                 </Select>
               </div>
-              <Button
-                type="submit"
-                size="lg"
-                className="w-full bg-[#D4A843] text-white hover:bg-[#C4952E] rounded-lg text-base h-12 cursor-pointer shadow-md"
+              <HoverBorderGradient
+                containerClassName="rounded-full w-full"
+                as="button"
+                className="bg-[#ffb900] text-white flex items-center justify-center w-full py-3 cursor-pointer"
               >
                 Book My Call
-              </Button>
+              </HoverBorderGradient>
             </form>
           )}
         </ContactCard>

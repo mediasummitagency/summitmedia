@@ -3,23 +3,37 @@
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Check } from "lucide-react";
+import {
+  Crosshair,
+  LayoutTemplate,
+  MousePointerClick,
+  Zap,
+  MailCheck,
+  BarChart3,
+  UserCheck,
+  type LucideIcon,
+} from "lucide-react";
 import { ReactNode } from "react";
+
+interface IncludedItem {
+  text: string;
+  icon: LucideIcon;
+}
 
 interface WhatYouGetProps {
   headline?: string;
-  items?: string[];
+  items?: IncludedItem[];
   note?: string;
 }
 
-const defaultItems = [
-  "Targeted ad campaigns built for your service area and trade",
-  "Custom landing pages designed to convert homeowners into leads",
-  "Lead tracking from first click to booked job",
-  "Speed-to-lead system so no opportunity slips through",
-  "Automated follow-up sequences to re-engage cold leads",
-  "Weekly performance scorecard with real outcome metrics",
-  "Dedicated point of contact who actually understands your business",
+const defaultItems: IncludedItem[] = [
+  { text: "Targeted ad campaigns built for your service area and trade", icon: Crosshair },
+  { text: "Custom landing pages designed to convert homeowners into leads", icon: LayoutTemplate },
+  { text: "Lead tracking from first click to booked job", icon: MousePointerClick },
+  { text: "Speed-to-lead system so no opportunity slips through", icon: Zap },
+  { text: "Automated follow-up sequences to re-engage cold leads", icon: MailCheck },
+  { text: "Weekly performance scorecard with real outcome metrics", icon: BarChart3 },
+  { text: "Dedicated point of contact who actually understands your business", icon: UserCheck },
 ];
 
 const defaultNote =
@@ -63,9 +77,13 @@ export function WhatYouGet({
         </motion.div>
 
         <div className="@min-4xl:max-w-full @min-4xl:grid-cols-3 mx-auto mt-8 grid max-w-sm gap-6 *:text-center md:mt-16">
-          {items.map((item, i) => (
+          {items.map((item, i) => {
+            const isLastAlone = items.length % 3 === 1 && i === items.length - 1;
+            const Icon = item.icon;
+            return (
             <motion.div
               key={i}
+              className={isLastAlone ? "@min-4xl:col-start-2" : ""}
               initial={{ opacity: 0, y: 24 }}
               animate={
                 isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }
@@ -79,9 +97,9 @@ export function WhatYouGet({
               <Card className="group border-white/10 bg-transparent shadow-none">
                 <CardHeader className="pb-3">
                   <CardDecorator>
-                    <Check
-                      className="size-6 text-[#D4A843]"
-                      strokeWidth={2.5}
+                    <Icon
+                      className="size-6 text-[#ffb900]"
+                      strokeWidth={2}
                       aria-hidden
                     />
                   </CardDecorator>
@@ -89,12 +107,13 @@ export function WhatYouGet({
 
                 <CardContent>
                   <p className="text-sm text-zinc-300 leading-relaxed">
-                    {item}
+                    {item.text}
                   </p>
                 </CardContent>
               </Card>
             </motion.div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

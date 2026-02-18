@@ -18,10 +18,14 @@ import { MidCTA } from "@/components/sections/MidCTA";
 import { FAQ } from "@/components/sections/FAQ";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 import { Footer } from "@/components/sections/Footer";
+import { SlideTabs } from "@/components/ui/slide-tabs";
 
 export default function Home() {
   return (
     <main>
+      <nav className="fixed top-4 left-1/2 z-50 -translate-x-1/2">
+        <SlideTabs />
+      </nav>
       <Hero />
       <ProblemCards />
       <HowItWorks />

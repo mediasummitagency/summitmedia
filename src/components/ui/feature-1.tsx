@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 
 interface Feature1Props {
   title: string;
@@ -41,16 +41,24 @@ export const Feature1 = ({
               {description}
             </p>
             <div className="flex w-full flex-col justify-center gap-2 sm:flex-row lg:justify-start">
-              <Button asChild>
-                <a href={buttonPrimary.href} target="_blank">
-                  {buttonPrimary.label}
-                </a>
-              </Button>
-              <Button variant="outline" asChild>
-                <a href={buttonSecondary.href} target="_blank">
-                  {buttonSecondary.label}
-                </a>
-              </Button>
+              <HoverBorderGradient
+                containerClassName="rounded-full"
+                as="a"
+                className="dark:bg-black bg-white text-black dark:text-white flex items-center"
+                href={buttonPrimary.href}
+                target="_blank"
+              >
+                {buttonPrimary.label}
+              </HoverBorderGradient>
+              <HoverBorderGradient
+                containerClassName="rounded-full"
+                as="a"
+                className="dark:bg-black bg-white text-black dark:text-white flex items-center"
+                href={buttonSecondary.href}
+                target="_blank"
+              >
+                {buttonSecondary.label}
+              </HoverBorderGradient>
             </div>
           </div>
           <img
