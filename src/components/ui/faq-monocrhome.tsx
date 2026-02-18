@@ -269,7 +269,7 @@ function FAQ1() {
       return;
     }
 
-    let timeout: ReturnType<typeof setTimeout>;
+    let timeout: number;
     const onLoad = () => {
       timeout = window.setTimeout(() => setHasEntered(true), 120);
     };
