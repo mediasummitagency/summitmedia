@@ -269,7 +269,7 @@ function FAQ1() {
       return;
     }
 
-    let timeout;
+    let timeout: ReturnType<typeof setTimeout>;
     const onLoad = () => {
       timeout = window.setTimeout(() => setHasEntered(true), 120);
     };
@@ -385,7 +385,7 @@ function FAQ1() {
                   aria-controls={panelId}
                   aria-expanded={open}
                   onClick={() => toggleQuestion(index)}
-                  style={{ "--faq-outline": theme === "dark" ? "rgba(255,255,255,0.35)" : "rgba(17,17,17,0.25)" }}
+                  style={{ "--faq-outline": theme === "dark" ? "rgba(255,255,255,0.35)" : "rgba(17,17,17,0.25)" } as React.CSSProperties}
                   className="relative flex w-full items-start gap-6 px-8 py-7 text-left transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--faq-outline)]"
                 >
                   <span
