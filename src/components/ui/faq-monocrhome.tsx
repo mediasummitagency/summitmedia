@@ -65,7 +65,7 @@ const palettes = {
 };
 
 function FAQ1() {
-  const getRootTheme = () => {
+  const getRootTheme = (): "dark" | "light" => {
     if (typeof document === "undefined") return "dark";
     if (document.documentElement.classList.contains("dark")) return "dark";
     if (document.documentElement.classList.contains("light")) return "light";
