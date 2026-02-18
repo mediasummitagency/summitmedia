@@ -235,7 +235,7 @@ function FAQ1() {
       attributeFilter: ["class", "data-theme"],
     });
 
-    const handleStorage = (event) => {
+    const handleStorage = (event: StorageEvent) => {
       if (event.key === "bento-theme") applyThemeFromRoot();
     };
 
