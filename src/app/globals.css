@@ -117,6 +117,24 @@
   --sidebar-ring: #D4A843;
 }
 
+@keyframes hero-gradient-shift {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.hero-gradient-bg {
+  background: linear-gradient(135deg, #0a0a0a 0%, #000000 50%, #0a0a0a 100%);
+  background-size: 400% 400%;
+  animation: hero-gradient-shift 18s ease infinite;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
