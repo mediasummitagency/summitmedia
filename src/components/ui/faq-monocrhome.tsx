@@ -286,14 +286,14 @@ function FAQ1() {
     };
   }, []);
 
-  const setCardGlow = (event: React.MouseEvent<HTMLDivElement>) => {
+  const setCardGlow = (event: React.MouseEvent<HTMLLIElement>) => {
     const target = event.currentTarget;
     const rect = target.getBoundingClientRect();
     target.style.setProperty("--faq-x", `${event.clientX - rect.left}px`);
     target.style.setProperty("--faq-y", `${event.clientY - rect.top}px`);
   };
 
-  const clearCardGlow = (event: React.MouseEvent<HTMLDivElement>) => {
+  const clearCardGlow = (event: React.MouseEvent<HTMLLIElement>) => {
     const target = event.currentTarget;
     target.style.removeProperty("--faq-x");
     target.style.removeProperty("--faq-y");
