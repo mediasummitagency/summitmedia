@@ -1,6 +1,6 @@
 const PainPoints = () => {
   return (
-    <section className="bg-white py-24 md:py-32">
+    <section className="py-24 md:py-32" style={{ background: "linear-gradient(135deg, #dceef8 0%, #c4d8e8 50%, #a8bfd0 100%)" }}>
       <div className="container mx-auto max-w-5xl px-6 lg:px-16">
         <h2 className="mb-20 text-center text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
           The Booked Jobs System is

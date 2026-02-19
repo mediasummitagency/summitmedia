@@ -44,7 +44,7 @@ export function ProofSection() {
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   return (
-    <section ref={ref} className="bg-white py-20">
+    <section ref={ref} className="py-20" style={{ background: "linear-gradient(135deg, #dceef8 0%, #c4d8e8 50%, #a8bfd0 100%)" }}>
       <div className="max-w-5xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
