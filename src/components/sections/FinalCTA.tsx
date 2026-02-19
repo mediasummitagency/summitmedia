@@ -66,7 +66,7 @@ export function FinalCTA({
               icon: MapPinIcon,
               label: "Serving",
               value: "Contractors Nationwide",
-              className: "col-span-2",
+              className: "sm:col-span-2",
             },
           ]}
         >

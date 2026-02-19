@@ -119,6 +119,7 @@ const Feature = ({
     <div
       className={cn(
         "flex flex-col lg:border-r py-10 relative group/feature dark:border-neutral-800",
+        "mx-4 mb-4 rounded-xl border border-neutral-200 bg-white shadow-sm dark:border-neutral-700 dark:bg-neutral-900 md:mx-0 md:mb-0 md:rounded-none md:border-0 md:bg-transparent md:shadow-none",
         (index === 0 || index === totalColumns) && "lg:border-l dark:border-neutral-800",
         isFirstRow && "lg:border-b dark:border-neutral-800"
       )}

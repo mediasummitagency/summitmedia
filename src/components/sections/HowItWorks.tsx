@@ -184,7 +184,7 @@ export function HowItWorks({
           generate your business leads.
         </p>
         <button
-          className="bg-[#ffd815] text-black font-bold text-2xl px-16 py-5 rounded-full cursor-pointer transition-colors duration-200 hover:bg-[#e6c213]"
+          className="bg-[#ffd815] text-black font-bold text-lg md:text-2xl px-10 md:px-16 py-4 md:py-5 rounded-full cursor-pointer transition-colors duration-200 hover:bg-[#e6c213]"
           onClick={() => {
             document
               .querySelector("#final-cta")
