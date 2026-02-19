@@ -146,7 +146,7 @@ export function HowItWorks({
                   />
                 </div>
                 <span
-                  className="mt-3 text-xs font-medium text-[#1A1F36] text-center max-w-[4rem] md:max-w-none transition-opacity duration-500"
+                  className="mt-3 text-xs font-medium text-[#1A1F36] text-center max-w-[3rem] md:max-w-none transition-opacity duration-500"
                   style={{
                     opacity: isVisible ? 1 : 0,
                     transitionDelay: `${800 + i * 300}ms`,
