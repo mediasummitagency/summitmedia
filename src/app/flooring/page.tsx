@@ -1,14 +1,3 @@
-// Hero
-// Problem Agitation
-// How It Works
-// Differentiator
-// Social Proof
-// What You Get
-// Mid CTA
-// FAQ
-// Final CTA + Form
-// Footer
-
 import { Hero } from "@/components/sections/Hero";
 import { Blog7 } from "@/components/blocks/blog7";
 import { HowItWorks } from "@/components/sections/HowItWorks";
@@ -71,13 +60,22 @@ const problemData = {
   ],
 };
 
-export default function Home() {
+export default function FlooringPage() {
   return (
     <main>
       <nav className="flex justify-center pt-4">
         <SlideTabs />
       </nav>
-      <Hero />
+      <Hero
+        headline={
+          <>
+            Ready to Book More Flooring Jobs
+            <br className="hidden md:block" /> Without Chasing Leads?
+          </>
+        }
+        subhead="No shared leads. No bidding wars. Just homeowners in your area who need flooring service, sent exclusively to your business."
+        ctaText="Book a Free Strategy Call"
+      />
       <hr className="mx-auto w-full max-w-6xl border-t border-border" />
       <Blog7 {...problemData} />
       <HowItWorks />

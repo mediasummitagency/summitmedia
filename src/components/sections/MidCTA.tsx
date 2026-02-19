@@ -35,7 +35,7 @@ export function MidCTA({
         </motion.h2>
 
         <motion.p
-          className="text-lg text-gray-300 mt-4"
+          className="text-xl text-gray-200 mt-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}

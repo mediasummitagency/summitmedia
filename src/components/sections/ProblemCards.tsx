@@ -87,8 +87,8 @@ function CardFront({ icon, title }: { icon: string; title: string }) {
 
   return (
     <div className="flex flex-col items-center justify-center h-full w-full p-8 text-center">
-      {Icon && <Icon size={40} className="text-[#ffb900] mb-4" strokeWidth={1.5} />}
-      <h3 className="text-xl font-semibold text-[#1A1F36]">{title}</h3>
+      {Icon && <Icon size={56} className="text-[#ffd815] mb-5" strokeWidth={1.5} />}
+      <h3 className="text-2xl font-bold text-[#1A1F36]">{title}</h3>
     </div>
   );
 }
@@ -96,17 +96,17 @@ function CardFront({ icon, title }: { icon: string; title: string }) {
 function CardBack({ body }: { body: string }) {
   return (
     <div className="flex items-center justify-center h-full w-full p-8">
-      <p className="text-[#2D3250] text-base leading-relaxed text-center">{body}</p>
+      <p className="text-[#1A1F36] text-lg leading-relaxed text-center">{body}</p>
     </div>
   );
 }
 
 export function ProblemCards({
-  sectionTitle = "Sound Familiar?",
+  sectionTitle = "The Leads Aren't the Problem. The System Is.",
   cards = defaultCards,
 }: ProblemCardsProps) {
   return (
-    <section className="bg-white py-12 md:py-20">
+    <section className="bg-[#F5F5F5] py-12 md:py-20">
       <div className="max-w-6xl mx-auto px-6">
         <h2 className="text-center text-2xl md:text-4xl font-bold text-[#1A1F36] mb-12">
           {sectionTitle}

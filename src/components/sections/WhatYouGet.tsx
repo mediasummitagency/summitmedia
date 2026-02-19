@@ -10,7 +10,6 @@ import {
   Zap,
   MailCheck,
   BarChart3,
-  UserCheck,
   type LucideIcon,
 } from "lucide-react";
 import { ReactNode } from "react";
@@ -33,7 +32,6 @@ const defaultItems: IncludedItem[] = [
   { text: "Speed-to-lead system so no opportunity slips through", icon: Zap },
   { text: "Automated follow-up sequences to re-engage cold leads", icon: MailCheck },
   { text: "Weekly performance scorecard with real outcome metrics", icon: BarChart3 },
-  { text: "Dedicated point of contact who actually understands your business", icon: UserCheck },
 ];
 
 const defaultNote =
@@ -44,15 +42,15 @@ const CardDecorator = ({ children }: { children: ReactNode }) => (
     aria-hidden
     className="relative mx-auto size-36 [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"
   >
-    <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.15)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.15)_1px,transparent_1px)] bg-[size:24px_24px]" />
-    <div className="absolute inset-0 m-auto flex size-12 items-center justify-center border-t border-l border-white/10 bg-[#0a0a0a]">
+    <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.25)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.25)_1px,transparent_1px)] bg-[size:24px_24px]" />
+    <div className="absolute inset-0 m-auto flex size-12 items-center justify-center border-t border-l border-white/20 bg-[#111]">
       {children}
     </div>
   </div>
 );
 
 export function WhatYouGet({
-  headline = "What's Included",
+  headline = "Everything We Build for You",
   items = defaultItems,
   note = defaultNote,
 }: WhatYouGetProps) {
@@ -68,7 +66,7 @@ export function WhatYouGet({
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center"
         >
-          <h2 className="text-balance text-2xl md:text-4xl lg:text-5xl font-semibold text-white">
+          <h2 className="text-balance text-2xl md:text-4xl lg:text-5xl font-bold text-white">
             {headline}
           </h2>
           <p className="mt-4 text-zinc-400">
@@ -94,11 +92,11 @@ export function WhatYouGet({
                 delay: 0.1 + i * 0.08,
               }}
             >
-              <Card className="group border-white/10 bg-transparent shadow-none">
+              <Card className="group border-white/20 bg-white/5 shadow-none">
                 <CardHeader className="pb-3">
                   <CardDecorator>
                     <Icon
-                      className="size-6 text-[#ffb900]"
+                      className="size-6 text-[#ffd815]"
                       strokeWidth={2}
                       aria-hidden
                     />
@@ -106,7 +104,7 @@ export function WhatYouGet({
                 </CardHeader>
 
                 <CardContent>
-                  <p className="text-sm text-zinc-300 leading-relaxed">
+                  <p className="text-base text-zinc-200 leading-relaxed">
                     {item.text}
                   </p>
                 </CardContent>
@@ -115,6 +113,25 @@ export function WhatYouGet({
             );
           })}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.5 }}
+          className="mt-14 md:mt-16 flex flex-col items-center text-center gap-5"
+        >
+          <p className="text-lg text-zinc-300 max-w-xl">
+            Limited spots per market — so you're never competing with another contractor on our system.
+          </p>
+          <button
+            className="bg-[#ffd815] text-black font-bold text-2xl px-16 py-5 rounded-full cursor-pointer transition-colors duration-200 hover:bg-[#e6c213]"
+            onClick={() => {
+              document.querySelector("#final-cta")?.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
+            Check Availability
+          </button>
+        </motion.div>
       </div>
     </section>
   );

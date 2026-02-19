@@ -27,17 +27,17 @@ export function FlippingCard({
     >
       <div
         className={cn(
-          "relative rounded-xl bg-[#F7F7F8] shadow-sm transition-all duration-700 [transform-style:preserve-3d] group-hover/flipping-card:[transform:rotateY(180deg)]",
+          "relative rounded-xl bg-white border border-[#E5E5E5] shadow-sm transition-all duration-700 [transform-style:preserve-3d] group-hover/flipping-card:[transform:rotateY(180deg)]",
           "h-[var(--height)] w-full",
           className
         )}
       >
-        <div className="absolute inset-0 h-full w-full rounded-[inherit] bg-[#F7F7F8] text-[#1A1F36] [transform-style:preserve-3d] [backface-visibility:hidden] [transform:rotateY(0deg)]">
+        <div className="absolute inset-0 h-full w-full rounded-[inherit] bg-white text-[#1A1F36] [transform-style:preserve-3d] [backface-visibility:hidden] [transform:rotateY(0deg)]">
           <div className="[transform:translateZ(70px)_scale(.93)] h-full w-full">
             {frontContent}
           </div>
         </div>
-        <div className="absolute inset-0 h-full w-full rounded-[inherit] bg-[#F7F7F8] text-[#1A1F36] [transform-style:preserve-3d] [backface-visibility:hidden] [transform:rotateY(180deg)]">
+        <div className="absolute inset-0 h-full w-full rounded-[inherit] bg-white text-[#1A1F36] [transform-style:preserve-3d] [backface-visibility:hidden] [transform:rotateY(180deg)]">
           <div className="[transform:translateZ(70px)_scale(.93)] h-full w-full">
             {backContent}
           </div>

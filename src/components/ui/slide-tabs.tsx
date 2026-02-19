@@ -2,12 +2,21 @@
 
 import React, { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 interface Position {
   left: number;
   width: number;
   opacity: number;
 }
+
+const tabs = [
+  { label: "Home", href: "/" },
+  { label: "Flooring", href: "/flooring" },
+  { label: "Features", href: "#" },
+  { label: "Docs", href: "#" },
+  { label: "Blog", href: "#" },
+];
 
 export const SlideTabs = () => {
   const [position, setPosition] = useState<Position>({
@@ -45,14 +54,15 @@ export const SlideTabs = () => {
       }}
       className="relative mx-auto flex w-fit rounded-full border-2 border-black bg-white p-1 dark:border-white dark:bg-neutral-800"
     >
-      {["Home", "Pricing", "Features", "Docs", "Blog"].map((tab, i) => (
+      {tabs.map((tab, i) => (
         <Tab
-          key={tab}
+          key={tab.label}
           ref={(el) => { tabsRef.current[i] = el; }}
           setPosition={setPosition}
           onClick={() => setSelected(i)}
+          href={tab.href}
         >
-          {tab}
+          {tab.label}
         </Tab>
       ))}
 
@@ -65,10 +75,11 @@ interface TabProps {
   children: React.ReactNode;
   setPosition: React.Dispatch<React.SetStateAction<Position>>;
   onClick: () => void;
+  href: string;
 }
 
 const Tab = React.forwardRef<HTMLLIElement, TabProps>(
-  ({ children, setPosition, onClick }, ref) => {
+  ({ children, setPosition, onClick, href }, ref) => {
     return (
       <li
         ref={ref}
@@ -86,7 +97,7 @@ const Tab = React.forwardRef<HTMLLIElement, TabProps>(
         }}
         className="relative z-10 block cursor-pointer px-3 py-1.5 text-xs uppercase text-white mix-blend-difference md:px-5 md:py-3 md:text-base"
       >
-        {children}
+        <Link href={href}>{children}</Link>
       </li>
     );
   }

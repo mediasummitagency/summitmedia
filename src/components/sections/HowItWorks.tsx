@@ -12,7 +12,7 @@ const steps: FeatureItem[] = [
   {
     title: "Capture Demand",
     description:
-      "We put your business in front of homeowners in your area who are actively looking for your service right now. Not shared leads. Not a bidding war. These people are only coming to you.",
+      "We put your business in front of homeowners actively searching for your service. No shared leads. No bidding wars, they're only coming to you.",
     icon: <Target />,
   },
   {
@@ -36,7 +36,7 @@ const steps: FeatureItem[] = [
   {
     title: "Report Outcomes",
     description:
-      "Every week you get a scorecard: how many leads came in, how many picked up, how many estimates you booked, how many closed, and what each booked job cost you. No fluff metrics. Just the numbers that hit your bank account.",
+      "Weekly review: leads in, estimates booked, jobs closed, and what each one cost you. The numbers that actually hit your bank account.",
     icon: <BarChart3 />,
   },
 ];
@@ -46,7 +46,7 @@ interface HowItWorksProps {
 }
 
 export function HowItWorks({
-  sectionTitle = "How the Booked Jobs System Works",
+  sectionTitle = "What You'll Get With the Booked Jobs System",
 }: HowItWorksProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -84,7 +84,7 @@ export function HowItWorks({
               {sectionTitle}
             </h2>
             <p
-              className="text-center text-sm text-white/60 mb-2 transition-all duration-700 ease-out"
+              className="text-center text-base text-white/80 mb-2 transition-all duration-700 ease-out"
               style={{
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible ? "translateY(0)" : "translateY(24px)",

@@ -54,7 +54,7 @@ const palette = {
   panel: "bg-neutral-900/50",
   border: "border-white/10",
   heading: "text-white",
-  muted: "text-neutral-400",
+  muted: "text-neutral-300",
   iconRing: "border-white/20",
   iconSurface: "bg-white/5",
   icon: "text-white",
@@ -266,11 +266,11 @@ export function FAQ({
               Questions
             </p>
             <h2
-              className={`text-3xl font-semibold leading-tight md:text-5xl ${palette.heading}`}
+              className={`text-3xl font-bold leading-tight md:text-5xl ${palette.heading}`}
             >
               {headline}
             </h2>
-            <p className={`mx-auto max-w-xl text-base ${palette.muted}`}>
+            <p className={`mx-auto max-w-xl text-lg ${palette.muted}`}>
               {subtitle}
             </p>
           </div>
@@ -342,7 +342,7 @@ export function FAQ({
                   <div className="flex flex-1 flex-col gap-4">
                     <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
                       <h3
-                        className={`text-lg font-medium leading-tight sm:text-xl ${palette.heading}`}
+                        className={`text-lg font-semibold leading-tight sm:text-xl ${palette.heading}`}
                       >
                         {item.question}
                       </h3>
@@ -359,7 +359,7 @@ export function FAQ({
                       id={panelId}
                       role="region"
                       aria-labelledby={buttonId}
-                      className={`overflow-hidden text-sm leading-relaxed transition-[max-height] duration-500 ease-out ${
+                      className={`overflow-hidden text-base leading-relaxed transition-[max-height] duration-500 ease-out ${
                         open ? "max-h-64" : "max-h-0"
                       } ${palette.muted}`}
                     >
