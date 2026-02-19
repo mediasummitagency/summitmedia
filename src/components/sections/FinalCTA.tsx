@@ -23,14 +23,11 @@ export function FinalCTA({
   headline = "Let's Build Your Pipeline",
   subhead = "Tell us a little about your business. We'll reach out with a quick fit check to see if we're the right match.",
   serviceOptions = [
-    "Painting",
-    "Flooring",
-    "Roofing",
-    "HVAC",
-    "Plumbing",
-    "Electrical",
-    "Landscaping",
-    "Other",
+    "100k",
+    "200k",
+    "500k",
+    "1M",
+    "2M",
   ],
 }: FinalCTAProps) {
   const [name, setName] = useState("");
@@ -115,10 +112,10 @@ export function FinalCTA({
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <Label className="text-black/70">Service</Label>
+                <Label className="text-black/70">Yearly Revenue</Label>
                 <Select value={service} onValueChange={setService}>
                   <SelectTrigger className="w-full border-black/10 bg-white text-black data-[placeholder]:text-black/40">
-                    <SelectValue placeholder="What Service Do You Offer?" />
+                    <SelectValue placeholder="What's Your Yearly Revenue?" />
                   </SelectTrigger>
                   <SelectContent>
                     {serviceOptions.map((opt) => (

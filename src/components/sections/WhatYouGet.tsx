@@ -66,7 +66,7 @@ export function WhatYouGet({
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center"
         >
-          <h2 className="text-balance text-2xl md:text-4xl lg:text-5xl font-bold text-white">
+          <h2 className="text-balance text-4xl md:text-5xl lg:text-6xl font-bold text-white">
             {headline}
           </h2>
           <p className="mt-4 text-zinc-400">
@@ -121,7 +121,9 @@ export function WhatYouGet({
           className="mt-14 md:mt-16 flex flex-col items-center text-center gap-5"
         >
           <p className="text-lg text-zinc-300 max-w-xl">
-            Limited spots per market — so you're never competing with another contractor on our system.
+            If you&apos;re doing over 200k a year and want a steady flow of
+            high-quality leads without relying on word of mouth or marketplace
+            platforms.
           </p>
           <button
             className="bg-[#ffd815] text-black font-bold text-2xl px-16 py-5 rounded-full cursor-pointer transition-colors duration-200 hover:bg-[#e6c213]"
@@ -131,6 +133,10 @@ export function WhatYouGet({
           >
             Check Availability
           </button>
+          <p className="text-sm text-zinc-500">
+            Limited spots per market, so you&apos;re never competing with another
+            contractor on our system.
+          </p>
         </motion.div>
       </div>
     </section>

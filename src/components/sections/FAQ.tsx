@@ -20,7 +20,7 @@ const defaultItems: FAQItem[] = [
   {
     question: "What exactly is the Booked Jobs System?",
     answer:
-      "It's a done-for-you lead generation system. We run targeted ads, build your landing pages, track every lead from first click to booked job, and give you a weekly scorecard so you always know what's working. Think of it as your own marketing department — without the overhead.",
+      "It's a done-for-you lead generation system. We run targeted ads, build your landing pages, track every lead from first click to booked job, and give you a weekly scorecard so you always know what's working. Think of it as your in-house marketing department.",
     meta: "Overview",
   },
   {
@@ -44,8 +44,14 @@ const defaultItems: FAQItem[] = [
   {
     question: "How quickly will I see results?",
     answer:
-      "Leads usually start coming in within the first week. The real results — booked estimates and closed jobs — build over the first 30 days as the system learns what works in your market and your follow-up gets tight.",
+      "We've generated results as fast as 1 week. It will depend on how much initial set up is required on your business. Steady lead flow will start building over the first 30 days as the system learns what works in your market and your follow-up gets tight.",
     meta: "Timeline",
+  },
+  {
+    question: "Do I pay even if I don't get leads?",
+    answer:
+      "No. You don't pay until we deliver real, qualified leads to your phone. We eat the risk of building your system because we know it works, we run it on our own business every day. If we don't perform, you don't pay.",
+    meta: "Risk",
   },
 ];
 
@@ -260,20 +266,12 @@ export function FAQ({
           <span className="faq-section-intro__tick" aria-hidden="true" />
         </div>
 
-        <header className="flex flex-col gap-4">
-          <div className="space-y-4 text-center">
-            <p className={`text-xs uppercase tracking-[0.35em] ${palette.muted}`}>
-              Questions
-            </p>
-            <h2
-              className={`text-3xl font-bold leading-tight md:text-5xl ${palette.heading}`}
-            >
-              {headline}
-            </h2>
-            <p className={`mx-auto max-w-xl text-lg ${palette.muted}`}>
-              {subtitle}
-            </p>
-          </div>
+        <header className="text-center">
+          <h2
+            className={`text-4xl font-bold leading-tight md:text-5xl lg:text-6xl ${palette.heading}`}
+          >
+            {headline}
+          </h2>
         </header>
 
         <ul className="space-y-4">

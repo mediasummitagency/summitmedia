@@ -2,7 +2,11 @@ export function Footer() {
   return (
     <footer className="w-full bg-neutral-950 py-8 px-6">
       <div className="max-w-5xl mx-auto flex flex-col items-center gap-4 md:flex-row md:justify-between md:items-center">
-        <span className="text-white font-bold text-lg">SummitMedia</span>
+        <img
+          src="/summit-media-logo.png"
+          alt="Summit Media"
+          className="h-12 w-auto"
+        />
 
         <span className="text-gray-500 text-sm text-center">
           © 2026 Summit Home Services LLC. All rights reserved.
