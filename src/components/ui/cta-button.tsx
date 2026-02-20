@@ -103,7 +103,7 @@ export function CtaButton({
         ref={btnRef}
         className={cn(
           "relative overflow-hidden bg-[#111111] text-white font-bold rounded-full cursor-pointer",
-          "transition-all duration-300 ease-out",
+          "transition-all duration-300 ease-out cta-ring-glow",
           "hover:scale-105 hover:bg-[#2a3050] hover:shadow-[0_8px_40px_rgba(26,31,54,0.45)]",
           "active:scale-95 active:shadow-[0_2px_10px_rgba(0,0,0,0.25),inset_0_2px_4px_rgba(0,0,0,0.15)] active:duration-100",
           pulse && "cta-pulse",
