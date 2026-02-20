@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "motion/react";
+import { useRef, type ReactNode } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { CtaButton } from "@/components/ui/cta-button";
 import {
@@ -13,7 +13,6 @@ import {
   BarChart3,
   type LucideIcon,
 } from "lucide-react";
-import { ReactNode } from "react";
 
 interface IncludedItem {
   text: string;
@@ -50,83 +49,78 @@ const CardDecorator = ({ children }: { children: ReactNode }) => (
   </div>
 );
 
+function ScrollReveal({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [0, 1, 1, 0]);
+  const y = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [50, 0, 0, -50]);
+
+  return (
+    <motion.div ref={ref} style={{ opacity, y }} className={className}>
+      {children}
+    </motion.div>
+  );
+}
+
 export function WhatYouGet({
   headline = "Everything We Build for You",
   items = defaultItems,
   note = defaultNote,
 }: WhatYouGetProps) {
-  const ref = useRef<HTMLElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.15 });
-
   return (
-    <section ref={ref} className="bg-[#0a0a0a] py-16 md:py-32">
+    <section className="bg-[#0a0a0a] py-16 md:py-32">
       <div className="@container mx-auto max-w-5xl px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="text-center"
-        >
+        <ScrollReveal className="text-center">
           <h2 className="text-balance text-4xl md:text-5xl lg:text-6xl font-bold text-white">
             {headline}
           </h2>
           <p className="mt-4 text-zinc-400">
             {note}
           </p>
-        </motion.div>
+        </ScrollReveal>
 
         <div className="@min-4xl:max-w-full @min-4xl:grid-cols-3 mx-auto mt-8 grid max-w-sm gap-6 *:text-center md:mt-16">
           {items.map((item, i) => {
             const isLastAlone = items.length % 3 === 1 && i === items.length - 1;
             const Icon = item.icon;
             return (
-            <motion.div
-              key={i}
-              className={`group ${isLastAlone ? "@min-4xl:col-start-2" : ""}`}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              whileHover={{
-                y: -10,
-                scale: 1.03,
-                transition: { duration: 0.25, ease: "easeOut" },
-              }}
-              transition={{
-                duration: 0.5,
-                ease: "easeOut",
-              }}
-            >
-              <Card
-                className="rounded-lg !bg-white/[0.04] border border-white/10 shadow-none transition-all duration-300 group-hover:!bg-white/[0.12] group-hover:border-[#ffd815]/40 group-hover:shadow-[0_8px_40px_rgba(255,216,21,0.1)]"
+              <ScrollReveal
+                key={i}
+                className={`group ${isLastAlone ? "@min-4xl:col-start-2" : ""}`}
               >
-                <CardHeader className="pb-3">
-                  <CardDecorator>
-                    <Icon
-                      className="size-6 text-[#ffd815]"
-                      strokeWidth={2}
-                      aria-hidden
-                    />
-                  </CardDecorator>
-                </CardHeader>
+                <Card className="rounded-lg !bg-white/[0.04] border border-white/10 shadow-none transition-all duration-300 group-hover:!bg-white/[0.12] group-hover:border-[#ffd815]/40 group-hover:shadow-[0_8px_40px_rgba(255,216,21,0.1)] hover:scale-[1.03] hover:-translate-y-2.5">
+                  <CardHeader className="pb-3">
+                    <CardDecorator>
+                      <Icon
+                        className="size-6 text-[#ffd815]"
+                        strokeWidth={2}
+                        aria-hidden
+                      />
+                    </CardDecorator>
+                  </CardHeader>
 
-                <CardContent>
-                  <p className="text-base text-zinc-200 leading-relaxed">
-                    {item.text}
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
+                  <CardContent>
+                    <p className="text-base text-zinc-200 leading-relaxed">
+                      {item.text}
+                    </p>
+                  </CardContent>
+                </Card>
+              </ScrollReveal>
             );
           })}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="mt-14 md:mt-16 flex flex-col items-center text-center gap-5"
-        >
+        <ScrollReveal className="mt-14 md:mt-16 flex flex-col items-center text-center gap-5">
           <p className="text-lg text-zinc-300 max-w-xl">
             If you&apos;re doing over 200k a year and want a steady flow of
             high-quality leads without relying on word of mouth or marketplace
@@ -144,7 +138,7 @@ export function WhatYouGet({
             Limited spots per market, so you&apos;re never competing with another
             contractor on our system.
           </p>
-        </motion.div>
+        </ScrollReveal>
       </div>
     </section>
   );
