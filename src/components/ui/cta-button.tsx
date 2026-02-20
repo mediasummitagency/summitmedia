@@ -18,7 +18,7 @@ function AnimatedArrows({ direction }: { direction: "left" | "right" }) {
   return (
     <span
       className={cn(
-        "pointer-events-none flex items-center gap-2 sm:gap-3",
+        "pointer-events-none hidden sm:flex items-center gap-2 sm:gap-3",
         isLeft ? "mr-4 sm:mr-5" : "ml-4 sm:ml-5",
       )}
       aria-hidden
