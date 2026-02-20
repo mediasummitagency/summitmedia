@@ -22,7 +22,7 @@ export function MidCTA({
   };
 
   return (
-    <section className="w-full bg-[#1A1F36] py-16">
+    <section className="w-full bg-[#111111] py-16">
       <div className="max-w-2xl mx-auto px-6 text-center">
         <motion.h2
           className="text-2xl md:text-3xl font-bold text-white"

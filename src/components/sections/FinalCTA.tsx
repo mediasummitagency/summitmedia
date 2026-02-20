@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { CheckCircle, MailIcon, PhoneIcon, MapPinIcon } from "lucide-react";
 import { ContactCard } from "@/components/ui/contact-card";
+import { CtaButton } from "@/components/ui/cta-button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
@@ -126,12 +127,16 @@ export function FinalCTA({
                   </SelectContent>
                 </Select>
               </div>
-              <button
-                type="submit"
-                className="w-full bg-[#ffd815] text-black font-bold text-lg px-8 py-4 rounded-full cursor-pointer transition-colors duration-200 hover:bg-[#e6c213]"
-              >
-                Book My Call
-              </button>
+              <div className="flex justify-center pt-2">
+                <CtaButton
+                  type="submit"
+                  hideArrows
+                  pulse
+                  className="text-lg px-12 py-4"
+                >
+                  Book My Call
+                </CtaButton>
+              </div>
             </form>
           )}
         </ContactCard>

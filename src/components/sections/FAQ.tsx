@@ -238,7 +238,7 @@ export function FAQ({
   return (
     <div
       ref={sectionRef}
-      className={`relative w-full overflow-hidden transition-colors duration-700 ${palette.surface}`}
+      className={`relative w-full transition-colors duration-700 ${palette.surface}`}
     >
       <div
         className="absolute inset-0 z-0"
@@ -250,7 +250,7 @@ export function FAQ({
       />
 
       <section
-        className={`relative z-10 mx-auto flex max-w-4xl flex-col gap-12 px-6 py-24 lg:max-w-5xl lg:px-12 ${
+        className={`relative z-10 mx-auto flex max-w-4xl flex-col gap-12 px-6 py-16 md:py-24 lg:max-w-5xl lg:px-12 ${
           hasEntered ? "faq-section-fade--ready" : "faq-section-fade"
         }`}
       >
@@ -304,10 +304,10 @@ export function FAQ({
                   aria-controls={panelId}
                   aria-expanded={open}
                   onClick={() => toggleQuestion(index)}
-                  className="relative flex w-full items-start gap-6 px-8 py-7 text-left transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[rgba(255,255,255,0.35)]"
+                  className="relative flex w-full items-start gap-4 md:gap-6 px-5 md:px-8 py-5 md:py-7 text-left transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[rgba(255,255,255,0.35)]"
                 >
                   <span
-                    className={`relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full border transition-all duration-500 group-hover:scale-105 ${palette.iconRing} ${palette.iconSurface}`}
+                    className={`relative flex h-10 w-10 md:h-12 md:w-12 shrink-0 items-center justify-center rounded-full border transition-all duration-500 group-hover:scale-105 ${palette.iconRing} ${palette.iconSurface}`}
                   >
                     <span
                       className={`pointer-events-none absolute inset-0 rounded-full border opacity-30 ${palette.iconRing} ${
@@ -315,7 +315,7 @@ export function FAQ({
                       }`}
                     />
                     <svg
-                      className={`relative h-5 w-5 transition-transform duration-500 ${palette.icon} ${
+                      className={`relative h-4 w-4 md:h-5 md:w-5 transition-transform duration-500 ${palette.icon} ${
                         open ? "rotate-45" : ""
                       }`}
                       viewBox="0 0 24 24"

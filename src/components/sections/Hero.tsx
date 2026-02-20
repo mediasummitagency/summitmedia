@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "motion/react";
 import { AuroraBackground } from "@/components/ui/aurora-background";
+import { CtaButton } from "@/components/ui/cta-button";
 
 interface HeroProps {
   headline?: React.ReactNode;
@@ -30,7 +31,7 @@ export function Hero({
         transition={{ delay: 0.3, duration: 0.8, ease: "easeInOut" }}
         className="relative flex flex-col items-center justify-center text-center px-4 md:px-8 lg:px-12"
       >
-        <h1 className="text-4xl md:text-6xl lg:text-[4.5rem] font-black text-[#1A1F36] leading-[1.1] tracking-tight md:whitespace-nowrap">
+        <h1 className="text-4xl md:text-6xl lg:text-[4.5rem] font-black text-[#111111] leading-[1.1] tracking-tight md:whitespace-nowrap">
           {headline}
         </h1>
 
@@ -39,12 +40,12 @@ export function Hero({
         </p>
 
         <div className="mt-10 flex flex-col items-center gap-3">
-          <button
+          <CtaButton
             onClick={handleClick}
-            className="bg-[#ffd815] text-black font-bold text-lg md:text-2xl px-10 md:px-16 py-4 md:py-5 rounded-full cursor-pointer transition-colors duration-200 hover:bg-[#e6c213]"
+            className="text-lg md:text-2xl px-10 md:px-16 py-4 md:py-5"
           >
             {ctaText}
-          </button>
+          </CtaButton>
           <p className="text-base text-[#4B5563] italic">
             Built by contractors. Run by contractors.
           </p>

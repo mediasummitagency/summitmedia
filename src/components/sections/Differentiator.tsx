@@ -30,7 +30,7 @@ export function Differentiator({
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <h2 className="text-2xl md:text-4xl font-bold text-[#1A1F36] mb-10 text-center">
+          <h2 className="text-2xl md:text-4xl font-bold text-[#111111] mb-10 text-center">
             {headline}
           </h2>
 
@@ -38,14 +38,14 @@ export function Differentiator({
             {paragraphs.map((text, i) => (
               <p
                 key={i}
-                className="text-[#2D3250] text-lg leading-relaxed text-center"
+                className="text-[#333333] text-lg leading-relaxed text-center"
               >
                 {text}
               </p>
             ))}
           </div>
 
-          <p className="text-[#1A1F36] font-semibold text-lg text-center">
+          <p className="text-[#111111] font-semibold text-lg text-center">
             {closingLine}
           </p>
         </motion.div>

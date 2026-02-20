@@ -16,18 +16,22 @@ import { FAQ } from "@/components/sections/FAQ";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 import { Footer } from "@/components/sections/Footer";
 import { ProofSection } from "@/components/sections/ProofSection";
-import { SlideTabs } from "@/components/ui/slide-tabs";
+import { SectionDivider } from "@/components/ui/section-divider";
+import { LineDivider } from "@/components/ui/line-divider";
 
 export default function Home() {
   return (
-    <main>
+    <main className="overflow-x-hidden">
       <Hero />
-      <hr className="mx-auto w-full max-w-6xl border-t border-border" />
+      <LineDivider />
       <ProofSection />
+      <LineDivider />
       <PainPoints />
+      <LineDivider />
       <HowItWorks />
       <FAQ />
       <FinalCTA />
+      <SectionDivider topColor="#FFFFFF" bottomColor="#0a0a0a" />
       <Footer />
     </main>
   );

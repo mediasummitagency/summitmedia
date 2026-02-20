@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { CtaButton } from "@/components/ui/cta-button";
 import {
   Crosshair,
   LayoutTemplate,
@@ -81,18 +82,25 @@ export function WhatYouGet({
             return (
             <motion.div
               key={i}
-              className={isLastAlone ? "@min-4xl:col-start-2" : ""}
+              className={`group ${isLastAlone ? "@min-4xl:col-start-2" : ""}`}
               initial={{ opacity: 0, y: 24 }}
               animate={
                 isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }
               }
+              whileHover={{
+                y: -10,
+                scale: 1.03,
+                transition: { duration: 0.25, ease: "easeOut" },
+              }}
               transition={{
                 duration: 0.5,
                 ease: "easeOut",
                 delay: 0.1 + i * 0.08,
               }}
             >
-              <Card className="group border-white/20 bg-white/5 shadow-none">
+              <Card
+                className="rounded-lg !bg-white/[0.04] border border-white/10 shadow-none transition-all duration-300 group-hover:!bg-white/[0.12] group-hover:border-[#ffd815]/40 group-hover:shadow-[0_8px_40px_rgba(255,216,21,0.1)]"
+              >
                 <CardHeader className="pb-3">
                   <CardDecorator>
                     <Icon
@@ -125,14 +133,14 @@ export function WhatYouGet({
             high-quality leads without relying on word of mouth or marketplace
             platforms.
           </p>
-          <button
-            className="bg-[#ffd815] text-black font-bold text-lg md:text-2xl px-10 md:px-16 py-4 md:py-5 rounded-full cursor-pointer transition-colors duration-200 hover:bg-[#e6c213]"
+          <CtaButton
+            className="text-lg md:text-2xl px-10 md:px-16 py-4 md:py-5"
             onClick={() => {
               document.querySelector("#final-cta")?.scrollIntoView({ behavior: "smooth" });
             }}
           >
             Check Availability
-          </button>
+          </CtaButton>
           <p className="text-sm text-zinc-500">
             Limited spots per market, so you&apos;re never competing with another
             contractor on our system.
