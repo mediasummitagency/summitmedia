@@ -83,10 +83,9 @@ export function WhatYouGet({
             <motion.div
               key={i}
               className={`group ${isLastAlone ? "@min-4xl:col-start-2" : ""}`}
-              initial={{ opacity: 0, y: 24 }}
-              animate={
-                isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }
-              }
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
               whileHover={{
                 y: -10,
                 scale: 1.03,
@@ -95,7 +94,6 @@ export function WhatYouGet({
               transition={{
                 duration: 0.5,
                 ease: "easeOut",
-                delay: 0.1 + i * 0.08,
               }}
             >
               <Card
@@ -123,9 +121,10 @@ export function WhatYouGet({
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.5 }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           className="mt-14 md:mt-16 flex flex-col items-center text-center gap-5"
         >
           <p className="text-lg text-zinc-300 max-w-xl">
