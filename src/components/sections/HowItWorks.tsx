@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { Target, Route, PhoneCall, MailCheck, BarChart3 } from "lucide-react";
 import { CtaButton } from "@/components/ui/cta-button";
@@ -50,12 +50,28 @@ interface HowItWorksProps {
   sectionTitle?: string;
 }
 
+function useIsMobile(breakpoint = 640) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mql = window.matchMedia(`(max-width: ${breakpoint - 1}px)`);
+    setIsMobile(mql.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mql.addEventListener("change", handler);
+    return () => mql.removeEventListener("change", handler);
+  }, [breakpoint]);
+
+  return isMobile;
+}
+
 function ScrollReveal({
   children,
   className,
+  isMobile,
 }: {
   children: ReactNode;
   className?: string;
+  isMobile: boolean;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -67,7 +83,11 @@ function ScrollReveal({
   const y = useTransform(scrollYProgress, [0, 0.5, 1], [80, 0, -80]);
 
   return (
-    <motion.div ref={ref} style={{ opacity, y }} className={className}>
+    <motion.div
+      ref={ref}
+      style={isMobile ? { opacity, y } : undefined}
+      className={className}
+    >
       {children}
     </motion.div>
   );
@@ -121,9 +141,11 @@ function ProgressBar() {
 export function HowItWorks({
   sectionTitle = "What You'll Get With the Booked Jobs System",
 }: HowItWorksProps) {
+  const isMobile = useIsMobile();
+
   return (
     <section className="bg-white py-20">
-      <ScrollReveal className="max-w-5xl mx-auto px-6">
+      <ScrollReveal isMobile={isMobile} className="max-w-5xl mx-auto px-6">
         <h2 className="text-center text-4xl md:text-5xl lg:text-6xl font-bold text-[#111111] mb-4">
           {sectionTitle}
         </h2>
@@ -138,7 +160,7 @@ export function HowItWorks({
         {steps.map((step) => {
           const Icon = step.icon;
           return (
-            <ScrollReveal key={step.title}>
+            <ScrollReveal key={step.title} isMobile={isMobile}>
               <div className="h-full rounded-3xl border border-black/[0.06] bg-[#f4f4f5] p-3 shadow-[0_2px_20px_rgba(0,0,0,0.06)] transition-all duration-300 ease-out hover:scale-105 hover:shadow-[0_8px_40px_rgba(0,0,0,0.12)] cursor-default">
                 <div className="h-full rounded-2xl border border-black/[0.04] bg-white px-5 py-7">
                   <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-[#f4f4f5]">
@@ -157,7 +179,7 @@ export function HowItWorks({
         })}
       </div>
 
-      <ScrollReveal className="mt-10 flex flex-col items-center text-center gap-5 px-6">
+      <ScrollReveal isMobile={isMobile} className="mt-10 flex flex-col items-center text-center gap-5 px-6">
         <p className="text-lg text-[#333333] max-w-xl">
           Try the Booked Jobs system risk-free. You don&apos;t pay until we
           generate your business leads.
