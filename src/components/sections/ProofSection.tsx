@@ -69,9 +69,7 @@ export function ProofSection() {
       <div className="max-w-5xl mx-auto px-6">
         <ScrollReveal scrollProgress={scrollYProgress} start={0.05} end={0.2}>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#111111] mb-6 text-center">
-            Results in Real Businesses
-            <br />
-            Just Like Yours
+            We Built This for Ourselves First.
           </h2>
         </ScrollReveal>
 
@@ -80,6 +78,12 @@ export function ProofSection() {
             We created this system to generate leads for our own business. This
             past year we refined the system and tested it real business to
             generate high intent and qualified leads.
+          </p>
+        </ScrollReveal>
+
+        <ScrollReveal scrollProgress={scrollYProgress} start={0.1} end={0.28}>
+          <p className="text-[#333333] text-lg leading-relaxed text-center max-w-3xl mx-auto mt-4">
+            Summit Home Services — our own contracting company in central New Jersey — went from scraping by on word-of-mouth to generating over $600K in revenue using the exact system we now build for other contractors.
           </p>
         </ScrollReveal>
 
@@ -116,7 +120,7 @@ export function ProofSection() {
 
         <ScrollReveal scrollProgress={scrollYProgress} start={0.15} end={0.32}>
           <p className="text-[#333333] text-lg leading-relaxed text-center max-w-3xl mx-auto">
-            Now we build it for contractors like you.
+            This isn&apos;t a marketing agency pitch. This is the system we use every single day to run our business. We refined it over two years of real jobs, real follow-ups, and real revenue — and now we build it for contractors like you.
           </p>
         </ScrollReveal>
       </div>
