@@ -14,34 +14,43 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
+const REVENUE_OPTIONS = [
+  { label: "Under $100K", value: "under_100k" },
+  { label: "$100K–$200K", value: "100k_200k" },
+  { label: "$200K–$500K", value: "200k_500k" },
+  { label: "$500K–$1M", value: "500k_1m" },
+  { label: "$1M+", value: "1m_plus" },
+];
+
 interface FinalCTAProps {
   headline?: string;
   subhead?: string;
-  serviceOptions?: string[];
 }
 
 export function FinalCTA({
   headline = "Let's Build Your Pipeline",
   subhead = "Tell us a little about your business. We'll reach out with a quick fit check to see if we're the right match.",
-  serviceOptions = [
-    "100k",
-    "200k",
-    "500k",
-    "1M",
-    "2M",
-  ],
 }: FinalCTAProps) {
   const [name, setName] = useState("");
   const [company, setCompany] = useState("");
   const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
   const [service, setService] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
-    console.log(JSON.stringify({ name, company, phone, service }));
-    // TODO: POST to Zapier webhook URL here
-    setSubmitted(true);
+    try {
+      await fetch("https://script.google.com/macros/s/AKfycbw0ItO6XSLbietotq6jRgtyRxRonCsApzV1F0O9sY7jcq1kv0uYFKYGW3xM9tGNtNJR/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, company, phone, email, revenue: service }),
+      });
+      setSubmitted(true);
+    } catch (err) {
+      console.error("Form submission error:", err);
+    }
   };
 
   return (
@@ -113,15 +122,26 @@ export function FinalCTA({
                 />
               </div>
               <div className="flex flex-col gap-2">
+                <Label className="text-black/70">Email</Label>
+                <Input
+                  type="email"
+                  placeholder="Email Address"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="border-black/10 bg-white text-black placeholder:text-black/40"
+                />
+              </div>
+              <div className="flex flex-col gap-2">
                 <Label className="text-black/70">Yearly Revenue</Label>
                 <Select value={service} onValueChange={setService}>
                   <SelectTrigger className="w-full border-black/10 bg-white text-black data-[placeholder]:text-black/40">
                     <SelectValue placeholder="What's Your Yearly Revenue?" />
                   </SelectTrigger>
                   <SelectContent>
-                    {serviceOptions.map((opt) => (
-                      <SelectItem key={opt} value={opt}>
-                        {opt}
+                    {REVENUE_OPTIONS.map((opt) => (
+                      <SelectItem key={opt.value} value={opt.value}>
+                        {opt.label}
                       </SelectItem>
                     ))}
                   </SelectContent>
