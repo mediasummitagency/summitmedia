@@ -76,12 +76,12 @@ function ContactInfo({
 }: ContactInfoProps) {
 	return (
 		<div className={cn('flex items-center gap-3 py-3', className)} {...props}>
-			<div className="bg-muted/40 rounded-lg p-3">
+			<div className="bg-muted/40 shrink-0 rounded-lg p-3">
 				<Icon className="h-5 w-5" />
 			</div>
-			<div>
+			<div className="min-w-0">
 				<p className="font-medium">{label}</p>
-				<p className="text-muted-foreground text-xs">{value}</p>
+				<p className="text-muted-foreground break-all text-xs">{value}</p>
 			</div>
 		</div>
 	);
