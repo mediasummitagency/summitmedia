@@ -66,11 +66,13 @@ export function FinalCTA({
               icon: MailIcon,
               label: "Email",
               value: "mediasummit.agency@gmail.com",
+              href: "mailto:mediasummit.agency@gmail.com",
             },
             {
               icon: PhoneIcon,
               label: "Phone",
               value: "(848) 238-6482",
+              href: "tel:+18482386482",
             },
             {
               icon: MapPinIcon,
