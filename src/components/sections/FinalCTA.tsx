@@ -65,12 +65,12 @@ export function FinalCTA({
             {
               icon: MailIcon,
               label: "Email",
-              value: "hello@summitmedia.com",
+              value: "mediasummit.agency@gmail.com",
             },
             {
               icon: PhoneIcon,
               label: "Phone",
-              value: "(555) 123-4567",
+              value: "(848) 238-6482",
             },
             {
               icon: MapPinIcon,
