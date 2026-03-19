@@ -76,8 +76,8 @@ export function ProofSection() {
         <ScrollReveal scrollProgress={scrollYProgress} start={0.08} end={0.25}>
           <p className="text-[#333333] text-lg leading-relaxed text-center max-w-3xl mx-auto">
             We created this system to generate leads for our own business. This
-            past year we refined the system and tested it real business to
-            generate high intent and qualified leads.
+            past year we refined it across a real operation to generate
+            high-intent, qualified leads.
           </p>
         </ScrollReveal>
 

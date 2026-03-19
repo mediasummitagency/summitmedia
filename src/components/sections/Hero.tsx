@@ -49,6 +49,9 @@ export function Hero({
           <p className="text-base text-[#4B5563] italic">
             Built by contractors. Run by contractors.
           </p>
+          <p className="text-sm text-[#6B7280]">
+            15-minute fit check — no pitch, no pressure.
+          </p>
         </div>
       </motion.div>
     </AuroraBackground>
