@@ -48,6 +48,9 @@ export function FinalCTA({
         body: JSON.stringify({ name, company, phone, email, revenue: service }),
       });
       setSubmitted(true);
+      // Fire GTM conversion event
+      (window as any).dataLayer = (window as any).dataLayer || [];
+      (window as any).dataLayer.push({ event: "form_submission" });
     } catch (err) {
       console.error("Form submission error:", err);
     }
